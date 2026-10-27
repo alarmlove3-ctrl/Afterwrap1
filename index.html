@@ -288,7 +288,7 @@ setInterval(save,1500);addEventListener('pagehide',save);document.addEventListen
 function hpGo(){try{localStorage.setItem('afterwrap_seen','1')}catch(e){}show('lock')}
 try{if(!ok&&!localStorage.getItem('afterwrap_seen'))show('hp')}catch(e){if(!ok)show('hp')}
 
-const SHARE_URL='https://claude.ai/artifact/MreRKXzxgNf3fKWh4GHrmx';let shareText='';
+const SHARE_URL='https://alarmlove3-ctrl.github.io/Afterwrap1/';let shareText='';
 const TG=['Someone moved Wan’s pickup.','Wan was hiding something from the one person he trusted.','Who gains when a rising star disappears?','A fact is not a crime.','Lies are cheap. Timelines aren’t.','Case closed. Mostly.'];
 function card(i){const c=CH[i],n=i+1;shareText=`I solved Chapter ${n} “${c.t}” on AFTERWRAP 🕵️ ${TG[i]} Can you crack Wan’s phone?\n#AFTERWRAP\n${SHARE_URL}`;$('scard').innerHTML=`<div class="cdk">AFTERWRAP · CASE FILE</div><div class="cdst">${i>=5?'CASE CLOSED':'SOLVED'}</div><div class="cdn">CHAPTER ${n} OF 6</div><h2>${c.t}</h2><p>${TG[i]}</p><div class="pips">${CH.map((_,j)=>`<i class="${j<=i?'f':''}"></i>`).join('')}</div><div class="cdf">${asked.size} questions asked · wan’s phone</div>`;$('shm').textContent='';$('sta').style.display='none';show('sc')}
 async function shr(){try{if(navigator.share){await navigator.share({text:shareText});return}}catch(e){if(e&&e.name=='AbortError')return}try{await navigator.clipboard.writeText(shareText);$('shm').textContent='Copied! Paste it into your post.';return}catch(e){}const t=$('sta');t.style.display='block';t.value=shareText;t.focus();t.select();$('shm').textContent='Copy the text below.'}
